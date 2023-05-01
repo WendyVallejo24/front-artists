@@ -41,9 +41,9 @@ jobs:
         fail_on_empty: false
     - name: show .env file
       run : cat .env
-      
+  
     - name: update nodos in wendyvallejo24
-      run: sed -i 's/{nodos}/${{secrets.NODOS}}/g' manifests/wendyvallejo24.yml
+      run: sed -i 's/{nodos}/${{secrets.NODOS}}/g' manifests/front-wendyvallejo24.yml
 
     - uses: okteto/context@2.7.0
       with:
