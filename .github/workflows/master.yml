@@ -41,9 +41,6 @@ jobs:
         fail_on_empty: false
     - name: show .env file
       run : cat .env
-  
-    - name: update nodos in wendyvallejo24
-      run: sed -i 's/{nodos}/${{secrets.NODOS}}/g' manifests/front-wendyvallejo24.yml
 
     - uses: okteto/context@2.7.0
       with:
@@ -51,5 +48,5 @@ jobs:
     - name: Deploy
       uses: okteto/pipeline@2.7.0
       with:
-        name: wendyvallejo24 # cambiar por su namespace
+        name: front-wendyvallejo24 # cambiar por su namespace
         timeout: 10m
