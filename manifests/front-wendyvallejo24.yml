@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: front-wendyvallejo24
 spec:
-  replicas: {nodos}
+  replicas: 3
   selector:
     matchLabels:
       app: front-wendyvallejo24
