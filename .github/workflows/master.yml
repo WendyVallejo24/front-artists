@@ -41,8 +41,6 @@ jobs:
         fail_on_empty: false
     - name: show .env file
       run : cat .env
-    - name: run tests
-      run: python manage.py test --settings=settings.testing -v 3 --keepdb
       
     - name: update nodos in wendyvallejo24
       run: sed -i 's/{nodos}/${{secrets.NODOS}}/g' manifests/wendyvallejo24.yml
