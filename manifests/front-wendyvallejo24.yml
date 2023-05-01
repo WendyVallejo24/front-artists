@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wendyvallejo24
+  name: front-wendyvallejo24
 spec:
   replicas: {nodos}
   selector:
     matchLabels:
-      app: wendyvallejo24
+      app: front-wendyvallejo24
   template:
     metadata:
       labels:
-        app: wendyvallejo24
+        app: front-wendyvallejo24
     spec:
       containers:
-      - image: okteto.dev/wendyvallejo24:latest
-        name: wendyvallejo24
+      - image: okteto.dev/front-wendyvallejo24:latest
+        name: front-wendyvallejo24
         envFrom:
         - configMapRef:
-            name: wendyvallejo24-config
+            name: front-wendyvallejo24-config
         livenessProbe:
           httpGet:
             path: /ht/
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: wendyvallejo24
+  name: front-wendyvallejo24
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
@@ -39,4 +39,4 @@ spec:
   - name: "wendyvallejo24"
     port: 8080
   selector:
-    app: wendyvallejo24
+    app: front-wendyvallejo24
