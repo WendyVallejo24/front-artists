@@ -36,7 +36,7 @@ metadata:
 spec:
   type: ClusterIP  
   ports:
-  - name: "wendyvallejo24"
+  - name: "front-wendyvallejo24"
     port: 8080
   selector:
     app: front-wendyvallejo24
