@@ -11,3 +11,5 @@ data:
  PROD_PASSWORD: ebLhfes2S_PIi-K8EVWT8q9hJ3f6B3tR
  PROD_HOST: mahmud.db.elephantsql.com
  PROD_PORT: "5432"
+
+#wendyvallejo24-configmap.yaml
