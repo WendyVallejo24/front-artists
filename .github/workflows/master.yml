@@ -48,5 +48,5 @@ jobs:
     - name: Deploy
       uses: okteto/pipeline@2.7.0
       with:
-        name: front-wendyvallejo24 # cambiar por su namespace
+        name: wendyvallejo24 # cambiar por su namespace
         timeout: 10m
