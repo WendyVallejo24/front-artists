@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="flex pa1 justify-between nowrap orange">
       <div className="flex flex-fixed black">
-      <img src={image} className='logo' width={45} height={45} />
+      <img src={image} className='logo' width={45} height={45} alt="" />
         <Link to="/" className="no-underline black">
           <div className="fw7 mr1">Artists</div>
         </Link>        
