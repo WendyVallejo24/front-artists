@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-wendyvallejo24
+  name: wendyvallejo24
 spec:
   replicas: 3
   selector:
@@ -18,7 +18,7 @@ spec:
         name: front-wendyvallejo24
         envFrom:
         - configMapRef:
-            name: wendyvallejo24-config
+            name: front-wendyvallejo24-config
         livenessProbe:
           httpGet:
             path: /ht/
