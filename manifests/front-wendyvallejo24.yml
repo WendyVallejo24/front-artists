@@ -18,7 +18,7 @@ spec:
         name: front-wendyvallejo24
         envFrom:
         - configMapRef:
-            name: front-wendyvallejo24-config
+            name: wendyvallejo24-config
         livenessProbe:
           httpGet:
             path: /ht/
