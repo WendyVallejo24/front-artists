@@ -66,15 +66,15 @@ const CreateLink = () => {
   });
 
   return (
-    <div>
+    <div class="app">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           createLink();
         }}
       >
-        
-        <div className="flex flex-column mt3">
+      <div class="mt3" id="contenedor"> 
+        <div class="uno">
           <input
             className="mb2"
             value={formState.id}
@@ -85,9 +85,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="ID"
           />
-          <input
+          <p>Nombre:</p> <input
             className="mb2"
             value={formState.nombre}
             onChange={(e) =>
@@ -97,9 +96,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Nombre"
           />
-          <input
+          <p>Año de nacimiento:</p> <input
             className="mb2"
             value={formState.anioNac}
             onChange={(e) =>
@@ -109,9 +107,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Año de naciomiento"
           />
-          <input
+          <p>Edad:</p> <input
             className="mb2"
             value={formState.edad}
             onChange={(e) =>
@@ -121,9 +118,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Edad"
           />
-          <input
+          <p>Género del artista:</p> <input
             className="mb2"
             value={formState.generoArtist}
             onChange={(e) =>
@@ -133,9 +129,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Genero del artista"
           />
-          <input
+          <p>Nacionalidad:</p> <input
             className="mb2"
             value={formState.nacionalidad}
             onChange={(e) =>
@@ -145,9 +140,10 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Nacionalidad"
           />
-          <input
+        </div>
+        <div class="dos">
+          <p>Género de música:</p> <input
             className="mb2"
             value={formState.generoMusica}
             onChange={(e) =>
@@ -157,9 +153,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Genero de musica"
           />
-          <input
+          <p>Cantidad de integrantes:</p> <input
             className="mb2"
             value={formState.cantIntegrantes}
             onChange={(e) =>
@@ -169,9 +164,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Cantidad de integrantes"
           />
-          <input
+          <p>Cantidad de albumes:</p> <input
             className="mb2"
             value={formState.cantAlbumes}
             onChange={(e) =>
@@ -181,9 +175,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Cantidad de albumes"
           />
-          <input
+          <p>Cantidad de sencillos:</p> <input
             className="mb2"
             value={formState.cantSencillos}
             onChange={(e) =>
@@ -193,9 +186,8 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Cantidad de sencillos"
           />
-          <input
+          <p>Cantidad de tours:</p> <input
             className="mb2"
             value={formState.cantTours}
             onChange={(e) =>
@@ -205,11 +197,14 @@ const CreateLink = () => {
               })
             }
             type="text"
-            placeholder="Cantidad de tours"
           />
+          
         </div>
-        <button type="submit">Submit</button>
+      </div> 
+        
       </form>
+      <br />
+      <button class="boton" type="submit">Submit</button>
     </div>
   );
 };

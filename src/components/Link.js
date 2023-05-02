@@ -4,10 +4,17 @@ const Link = (props) => {
   const { link } = props;
   return (
     <div>
-      <div>
-        {link.id} {link.nombre} {link.anioNac} {link.edad} {link.generoArtists}
-        {link.nacionalidad} {link.generoMusica} {link.cantIntegrantes} {link.cantAlbumes}
-        {link.cantSencillos} {link.cantTours}
+      <div class="lista">
+        Nombre: {link.nombre} <br/>
+        {link.anioNac} 
+        Edad: {link.edad} <br/>
+        {link.generoArtists}
+        Nacionalidad: {link.nacionalidad} 
+        {link.generoMusica} 
+        {link.cantIntegrantes} 
+        {link.cantAlbumes}
+        {link.cantSencillos} 
+        {link.cantTours}
       </div>
     </div>
   );
