@@ -14,7 +14,7 @@ spec:
         app: front-wendyvallejo24
     spec:
       containers:
-      - image: okteto.dev/front-wendyvallejo24:latest
+      - image: okteto.dev/wendyvallejo24:latest
         name: front-wendyvallejo24
         envFrom:
         - configMapRef:
