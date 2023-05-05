@@ -66,15 +66,15 @@ const CreateLink = () => {
   });
 
   return (
-    <div class="app">
+    <div className="app">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           createLink();
         }}
       >
-      <div class="mt3" id="contenedor"> 
-        <div class="uno">
+      <div className="mt3" id="contenedor"> 
+        <div className="uno">
           <input
             className="mb2"
             value={formState.id}
@@ -142,7 +142,7 @@ const CreateLink = () => {
             type="text"
           />
         </div>
-        <div class="dos">
+        <div className="dos">
           <p>Género de música:</p> <input
             className="mb2"
             value={formState.generoMusica}
@@ -201,10 +201,9 @@ const CreateLink = () => {
           
         </div>
       </div> 
-        
-      </form>
       <br />
-      <button class="boton" type="submit">Submit</button>
+      <button className="boton" type="submit">Submit</button>
+      </form>
     </div>
   );
 };
