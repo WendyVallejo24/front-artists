@@ -8,7 +8,12 @@ query{
     id
     nombre
     edad
+    anioNac
+    generoArtist
     nacionalidad
+    generoMusica
+    cantAlbumes
+    cantSencillos
   }
 }
 `

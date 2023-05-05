@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Comic Sans MS';
 }
 
 input {
@@ -22,7 +22,7 @@ input {
 .orange {
   background: linear-gradient(240deg, rgb(244, 107, 33), rgb(231, 102, 10), rgb(236, 227, 56), rgb(202, 200, 73));
   width: auto;
-  height: 60px;
+  height: 10%;
   align-items: center;
 }
 
@@ -35,7 +35,7 @@ input {
 }
 
 .f11 {
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .w85 {
@@ -59,6 +59,9 @@ input {
 .mt3{
   font-family: 'Comic Sans MS';
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #contenedor {
@@ -68,7 +71,7 @@ input {
 }
 
 #contenedor > div {
-  width: 50%;
+  display: block;
 }
 
 .boton {
@@ -76,21 +79,40 @@ input {
   font-size: 15pt;
   margin-top: 15px;
   margin-left: 40%;
-  padding: 7px;
-  width: 10%;
-  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 20%;
+  margin-bottom: 15px;
   border-radius: 10px;
   border-width: thin;
+  background-color: coral;
 }
 
 .uno {
   color: black;
   font-weight: bold;
+  background-color: rgba(255, 228, 196, 0.144);
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
 }
 
 .dos{
-  margin-bottom: 5px;
+  color: black;
+  font-weight: bold;
   margin-top: 29px;
+  background-color: rgba(255, 228, 196, 0.144);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 3.8%;
+  padding-bottom: 10px;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
 }
 
 html {
@@ -99,8 +121,39 @@ html {
 }
 
 .lista {
-  text-align: left;
-  color: aliceblue;
-  margin-left: 60%;
+  text-align: center;
+  color: rgb(215, 219, 229);
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #21202080;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.encabezados {
+  background-color: #dead0d66;
+  color: #e1d6d6;
+  text-align: middle;
+  border-radius: 3px;
+}
+
+.contenido {
+  border-bottom: 1px solid #4c4444;
+  background-color: #1b191953;
+  border-radius: 3px;
+}
+
+th {
+  height: 40px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 3px;
+}
+
+td {
+  height: 30px;
+  border-radius: 3px;
 }
