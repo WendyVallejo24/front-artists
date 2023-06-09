@@ -1,21 +1,24 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 // props : parametros
 const Link = (props) => {
   const { link } = props;
+  const { t } = useTranslation();
+
   return (
     <div>
       <div className="lista">
         <table className="content-table">
           <thead className="encabezados">
             <tr>
-              <th>Artista</th>
-              <th>Año de nacimiento</th>
-              <th>Edad</th>
-              <th>Género del artista</th>
-              <th>Nacionalidad</th>
-              <th>Género de música</th>
-              <th>Cantidad de albumes</th>
-              <th>Cantidad de sencillos</th>
+              <th>{t('artist')}</th>
+              <th>{t('year')}</th>
+              <th>{t('age')}</th>
+              <th>{t('genre')}</th>
+              <th>{t('nationality')}</th>
+              <th>{t('music')}</th>
+              <th>{t('album')}</th>
+              <th>{t('sencillos')}</th>
             </tr>
           </thead>
           <tbody className='contenido'>

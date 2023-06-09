@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 const CREATE_LINK_MUTATION = gql`
   mutation createArtista(
@@ -32,6 +33,8 @@ const CREATE_LINK_MUTATION = gql`
 `;
 
 const CreateLink = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     id: 0,
     nombre: '',
@@ -45,8 +48,6 @@ const CreateLink = () => {
     cantSencillos: 0,
     cantTours: 0
   });
-
-  const navigate = useNavigate();
 
   const [createLink] = useMutation(CREATE_LINK_MUTATION, {
     variables: {
@@ -73,137 +74,138 @@ const CreateLink = () => {
           createLink();
         }}
       >
-      <div className="mt3" id="contenedor"> 
-        <div className="uno">
-          <input
-            className="mb2"
-            value={formState.id}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                id: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Nombre:</p> <input
-            className="mb2"
-            value={formState.nombre}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                nombre: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Año de nacimiento:</p> <input
-            className="mb2"
-            value={formState.anioNac}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                anioNac: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Edad:</p> <input
-            className="mb2"
-            value={formState.edad}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                edad: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Género del artista:</p> <input
-            className="mb2"
-            value={formState.generoArtist}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                generoArtist: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Nacionalidad:</p> <input
-            className="mb2"
-            value={formState.nacionalidad}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                nacionalidad: e.target.value
-              })
-            }
-            type="text"
-          />
+        <div className="mt3" id="contenedor">
+          <div className="uno">
+            <input
+              className="mb2"
+              value={formState.id}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  id: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('artist')}:</p> <input
+              className="mb2"
+              value={formState.nombre}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  nombre: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('year')}:</p> <input
+              className="mb2"
+              value={formState.anioNac}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  anioNac: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('age')}:</p> <input
+              className="mb2"
+              value={formState.edad}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  edad: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('genre')}:</p> <input
+              className="mb2"
+              value={formState.generoArtist}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  generoArtist: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('nationality')}:</p> <input
+              className="mb2"
+              value={formState.nacionalidad}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  nacionalidad: e.target.value
+                })
+              }
+              type="text"
+            />
+          </div>
+          <div className="dos">
+            <p>{t('music')}:</p> <input
+              className="mb2"
+              value={formState.generoMusica}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  generoMusica: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('integrantes')}</p> <input
+              className="mb2"
+              value={formState.cantIntegrantes}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  cantIntegrantes: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('album')}:</p> <input
+              className="mb2"
+              value={formState.cantAlbumes}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  cantAlbumes: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('sencillos')}:</p> <input
+              className="mb2"
+              value={formState.cantSencillos}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  cantSencillos: e.target.value
+                })
+              }
+              type="text"
+            />
+            <p>{t('tour')}:</p> <input
+              className="mb2"
+              value={formState.cantTours}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  cantTours: e.target.value
+                })
+              }
+              type="text"
+            />
+
+          </div>
         </div>
-        <div className="dos">
-          <p>Género de música:</p> <input
-            className="mb2"
-            value={formState.generoMusica}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                generoMusica: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Cantidad de integrantes:</p> <input
-            className="mb2"
-            value={formState.cantIntegrantes}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                cantIntegrantes: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Cantidad de albumes:</p> <input
-            className="mb2"
-            value={formState.cantAlbumes}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                cantAlbumes: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Cantidad de sencillos:</p> <input
-            className="mb2"
-            value={formState.cantSencillos}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                cantSencillos: e.target.value
-              })
-            }
-            type="text"
-          />
-          <p>Cantidad de tours:</p> <input
-            className="mb2"
-            value={formState.cantTours}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                cantTours: e.target.value
-              })
-            }
-            type="text"
-          />
-          
-        </div>
-      </div> 
-      <br />
-      <button className="boton" type="submit">Submit</button>
+
       </form>
+      <br />
+      <button className="boton" type="submit">{t('submit')}</button>
     </div>
   );
 };
