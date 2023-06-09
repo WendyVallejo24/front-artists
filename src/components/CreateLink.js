@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { Button } from 'react-bootstrap';
 
 const CREATE_LINK_MUTATION = gql`
   mutation createArtista(
@@ -205,7 +206,7 @@ const CreateLink = () => {
 
       </form>
       <br />
-      <button className="boton" type="submit">{t('submit')}</button>
+      <Button className="boton" type="submit">{t('submit')}</Button>
     </div>
   );
 };

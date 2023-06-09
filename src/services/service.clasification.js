@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 class ServiceClasification {
     async getClasification(data) {
         const configuration = new Configuration({
-            apiKey: "",
+            apiKey: "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",
         });
         const openai = new OpenAIApi(configuration);
         console.log(configuration);
