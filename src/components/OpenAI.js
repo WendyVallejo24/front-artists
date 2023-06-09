@@ -4,12 +4,23 @@ import ServiceImg from "../services/service.img";
 import ServiceMovietoemoji from "../services/service.movietoemoji";
 import ServiceChat from "../services/service.chat";
 import ServiceTraductor from "../services/service.traductor";
-import ServiceRecetas from "../services/service.recetas";
 import ServiceClasification from "../services/service.clasification";
 import { useTranslation } from "react-i18next";
+import { useQuery, gql } from '@apollo/client';
+import SavePrompt from "../components/savepromp";
+
+const FEED_QUERY = gql`
+  query {
+    me {
+      username
+    }
+  }
+`;
 
 export default function OpenAI() {
     const { t } = useTranslation();
+    const { data: { me } = {} } = useQuery(FEED_QUERY);
+    const user = me?.username;
     const [selectedService, setSelectedService] = useState(null);
     const [artistsInput, setArtistsInput] = useState("");
     const [artistsInputText, setArtistsInputText] = useState("");
@@ -18,7 +29,6 @@ export default function OpenAI() {
     const [movieInput, setMovieInput] = useState("");
     const [chatInput, setChatInput] = useState("");
     const [traductorInput, setTraductorInput] = useState("");
-    const [recetasInput, setRecetasInput] = useState("");
     const [clasificationInput, setClasificationInput] = useState("");
 
     async function onSubmitImage(event) {
@@ -33,7 +43,7 @@ export default function OpenAI() {
             }
             console.log("response", response);
             setResult(data.result);
-            setArtistsInput("");
+            //setArtistsInput("");
         } catch (error) {
             console.error(error);
             alert(error.message);
@@ -52,7 +62,7 @@ export default function OpenAI() {
             }
             console.log("response", response);
             setResult(data.result);
-            setArtistsInputText("");
+            //setArtistsInputText("");
         } catch (error) {
             console.error(error);
             alert(error.message);
@@ -72,7 +82,7 @@ export default function OpenAI() {
             }
             console.log("response", response);
             setResult(data.result);
-            setMovieInput("");
+            //setMovieInput("");
         } catch (e) {
             console.error(e);
             alert(e.message);
@@ -92,7 +102,7 @@ export default function OpenAI() {
             }
             console.log("response", response);
             setResult(data.result);
-            setChatInput("");
+            //setChatInput("");
         } catch (e) {
             console.error(e);
             alert(e.message);
@@ -112,27 +122,7 @@ export default function OpenAI() {
             }
             console.log("response", response);
             setResult(data.result);
-            setTraductorInput("");
-        } catch (e) {
-            console.error(e);
-            alert(e.message);
-        }
-    }
-
-    async function onSubmitRecetas(event) {
-        event.preventDefault();
-
-        try {
-            const response = await ServiceRecetas.getRecetas({ recetas: recetasInput });
-
-            const data = await response;
-            console.log(response);
-            if (response.status !== 200) {
-                throw data.error || new Error(`Request failed with status ${response.status}`);
-            }
-            console.log("response", response);
-            setResult(data.result);
-            setRecetasInput("");
+            //setTraductorInput("");
         } catch (e) {
             console.error(e);
             alert(e.message);
@@ -152,7 +142,7 @@ export default function OpenAI() {
             }
             console.log("response", response);
             setResult(data.result);
-            setClasificationInput("");
+            //setClasificationInput("");
         } catch (e) {
             console.error(e);
             alert(e.message);
@@ -166,7 +156,6 @@ export default function OpenAI() {
             <button className="boton-ia" onClick={() => setSelectedService("movie")}>{t('generadorEmojis')}</button>
             <button className="boton-ia" onClick={() => setSelectedService("chat")}>Q&A</button>
             <button className="boton-ia" onClick={() => setSelectedService("traductor")}>Traductor</button>
-            <button className="boton-ia" onClick={() => setSelectedService("recetas")}>Recetas</button>
             <button className="boton-ia" onClick={() => setSelectedService("clasification")}>Clasificacion</button>
 
             {selectedService === "image" && (
@@ -213,6 +202,14 @@ export default function OpenAI() {
                             <input className="generadores" type="submit" value={t('generadorNom')} />
                         </form>
                         <div className="resultados">{result}</div>
+                        {user && (
+                            <SavePrompt
+                                user={user}
+                                model="text-davinci-003"
+                                prompt={artistsInputText}
+                                result={result}
+                            />
+                        )}
                     </div>
                 )
             }
@@ -232,6 +229,14 @@ export default function OpenAI() {
                             <input className="generadores" type="submit" value={t('generadorEmojis')} />
                         </form>
                         <div className="resultados">{result}</div>
+                        {user && (
+                            <SavePrompt
+                                user={user}
+                                model="emoji"
+                                prompt={movieInput}
+                                result={result}
+                            />
+                        )}
                     </div>
                 )
             }
@@ -251,6 +256,14 @@ export default function OpenAI() {
                             <input className="generadores" type="submit" value="Submit" />
                         </form>
                         <div className="resultados">{result}</div>
+                        {user && (
+                            <SavePrompt
+                                user={user}
+                                model="pregunta y respuesta"
+                                prompt={chatInput}
+                                result={result}
+                            />
+                        )}
                     </div>
                 )
             }
@@ -271,25 +284,14 @@ export default function OpenAI() {
                             <input className="generadores" type="submit" value="Traducir" />
                         </form>
                         <div className="resultados">{result}</div>
-                    </div>
-                )
-            }
-
-            {
-                selectedService === "recetas" && (
-                    <div className="contenedores">
-                        <h3 className="title">Recetas</h3>
-                        <form onSubmit={onSubmitRecetas}>
-                            <input
-                                type="text"
-                                className="animal"
-                                placeholder="Enter a text"
-                                value={recetasInput}
-                                onChange={(e) => setRecetasInput(e.target.value)}
+                        {user && (
+                            <SavePrompt
+                                user={user}
+                                model="Traductor"
+                                prompt={traductorInput}
+                                result={result}
                             />
-                            <input className="generadores" type="submit" value="Submit" />
-                        </form>
-                        <div className="resultados">{result}</div>
+                        )}
                     </div>
                 )
             }
@@ -309,6 +311,14 @@ export default function OpenAI() {
                             <input className="generadores" type="submit" value="Submit" />
                         </form>
                         <div className="resultados">{result}</div>
+                        {user && (
+                            <SavePrompt
+                                user={user}
+                                model="clasificacion"
+                                prompt={clasificationInput}
+                                result={result}
+                            />
+                        )}
                     </div>
                 )
             }
