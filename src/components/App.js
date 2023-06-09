@@ -2,6 +2,9 @@ import React from 'react';
 import CreateLink from './CreateLink';
 import Header from './Header';
 import LinkList from './LinkList';
+import Login from './Login';
+import OpenAI from './OpenAI';
+import Search from './Search';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -15,7 +18,20 @@ const App = () => {
             path="/create"
             element={<CreateLink/>}
           />
+          <Route
+            path="/login" 
+            element={<Login/>}
+          />
+          <Route
+            path="/openai" 
+            element={<OpenAI/>}
+          />
+          <Route 
+            path="/search"
+            element={<Search/>}
+          />
         </Routes>
+        
       </div>
     </div>
   );
